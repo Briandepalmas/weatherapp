@@ -1,6 +1,6 @@
 import React from 'react'
  
-function Home() {
+function Brooklyn() {
    return (
        <React.Fragment >
        <h1>Welcome to my Home</h1>
@@ -12,4 +12,4 @@ function Home() {
  
 }
  
-export default Home
+export default Brooklyn
