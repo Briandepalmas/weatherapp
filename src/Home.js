@@ -48,18 +48,17 @@ export class Home extends Component {
                     <nav>
                         <Router>
                             <div className="city">
-                                <Link id="hq" to="/Home">Sunday</Link>
-                                <Link id="bk"  to="/brooklyn">Monday</Link>
-                                <Link id="sdq" to="/santodomingo">Tuesday</Link>
+                                <Link id="sun" to="/sunday">Sunday</Link>
+                                <Link id="mon"  to="/monday">Monday</Link>
+                                <Link id="tue" to="/tuesday">Tuesday</Link>
                             </div> 
                         </Router>
                       </nav>
-                      <Switch>
-         <Route exact path="/" component={Home} />
-         <Route exact path="/brooklyn" component={Brooklyn} />
-         <Route exact path="/santodomingo" component={SantoDomingo} />
-         
-       </Switch>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/brooklyn" component={Brooklyn} />
+                        <Route exact path="/santodomingo" component={SantoDomingo} />
+                    </Switch>
                 </div>
               </React.Fragment>
             )
