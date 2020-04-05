@@ -6,18 +6,17 @@ export class SantoDomingo extends Component {
     super(props);
   
     this.state = {
-      isLoaded: false,
       data: []
     }
   }
 componentDidMount(){
-    let one =  "http://anapioficeandfire.com/api/characters/583"
-const a=axios.get(one)
-   a.then(res => {
-     const bc= res.data.culture;
-     console.log("recipes ---->", bc)
+    let fiveDays =  "http://anapioficeandfire.com/api/characters/583"
+const forecast=axios.get(fiveDays)
+   forecast.then(res => {
+     const weather= res.data.culture;
+     console.log("recipes ---->", weather)
     
-     this.setState({data: bc})
+     this.setState({data: weather})
  
    })
    .catch(error => {
