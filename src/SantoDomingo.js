@@ -14,11 +14,12 @@ componentDidMount(){
    
 const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=3492908&appid=e9984ab7f3bed98ab978f1bfc5c63170")
    forecast.then(response => {
-     let weather= response.data.list[1].main.temp;
-     let b= response.data.cod;
-     console.log("temperature ---->", weather)
+     let high= response.data.list[1].main.temp_max;
+     let low= response.data.list[1].main.temp_min;
+     
+     console.log("temperature ---->", low)
     
-     this.setState({data: [weather,b]})
+     this.setState({data: [high,low]})
  
    })
    .catch(error => {
@@ -37,7 +38,8 @@ const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=34
           <React.Fragment >
             <div>
                 <h1>Welcome to Santo Domingo
-                  the temperature is {this.state.data[0]}F 
+                  Highest temperature is {this.state.data[0]}F
+                  Lowest temperature is {this.state.data[1]}F
                 </h1>
                 
             </div>
