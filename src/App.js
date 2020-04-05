@@ -14,7 +14,7 @@ function App() {
      <div className="App">
        <nav>
          <div className="city">
-           <Link id="hq" to="/Home">Home</Link>
+           <Link id="hq" to="/">Home</Link>
            <Link id="bk"  to="/brooklyn">Brooklyn</Link>
            <Link id="sdq" to="/santodomingo">Santo Domingo</Link>
          </div>

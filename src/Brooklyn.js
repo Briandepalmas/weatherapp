@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-let key=process.env.REACT_APP_WEATHER_API_KEY
+
 
 
 export class Brooklyn extends Component {
@@ -41,18 +41,15 @@ const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=51
  
  }
 
-//  function kelvinToF(){
-//    let a=8;
-//    this.setState(a)
-//  }
+
 
     render() {
         return (
           <React.Fragment >
             <div>
                 <h1>Welcome to Brooklyn
-                Highest temperature is {this.state.data[0]}F
-                  Lowest temperature is {this.state.data[1]}F 
+                Highest temperature is {this.state.data[0]}°F
+                  Lowest temperature is {this.state.data[1]}°F 
                 </h1>
                 
             </div>

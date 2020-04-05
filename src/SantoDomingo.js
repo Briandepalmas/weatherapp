@@ -25,12 +25,14 @@ componentDidMount(){
    
 const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=3492908&appid="+key)
    forecast.then(response => {
-     let high= response.data.list[1].main.temp_max;
-     let low= response.data.list[1].main.temp_min;
+     let high= response.data.list[0].main.temp_max;
+     let low= response.data.list[0].main.temp_min;
+     let day= response.data.list[0].dt_txt;
+     
      let tempF=kelvinToF(high,low)
-     console.log("temperature ---->", low)
+     console.log("temperature ---->", day)
     
-     this.setState({data: [tempF[0],tempF[1]]})
+     this.setState({data: [tempF[0],tempF[1],day]})
  
    })
    .catch(error => {
