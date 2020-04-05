@@ -23,15 +23,18 @@ export class Home extends Component {
             return (
               <React.Fragment >
                 <div>
-                    <h1>Welcome to Brooklyn
-                    {/* {this.state.day} */}
+                    <h1>Welcome to Home Page
+                    
                     </h1>
                     <nav>
                         <Router>
                             <div className="days">
                                 <Link id="sun" to="/sunday">Sunday</Link>
+                                <h1>hoy</h1>
                                 <Link id="mon"  to="/monday">Monday</Link>
+                                <h1>maniana</h1>
                                 <Link id="tue" to="/tuesday">Tuesday</Link>
+                                <h1>pasado</h1>
                             </div> 
                         </Router>
                       </nav>
