@@ -4,16 +4,17 @@ import axios from 'axios'
 export class SantoDomingo extends Component {
   constructor(props) {
     super(props);
-    //"id":3492908
+    
     this.state = {
       data: []
     }
   }
 componentDidMount(){
-    //let fiveDays ="api.openweathermap.org/data/2.5/forecast?id=3492908&appid=e9984ab7f3bed98ab978f1bfc5c63170"
-const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=5110302&appid=e9984ab7f3bed98ab978f1bfc5c63170")
+    //"id":3492908
+   
+const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=3492908&appid=e9984ab7f3bed98ab978f1bfc5c63170")
    forecast.then(response => {
-     let weather= response.data.city.name;
+     let weather= response.data.list[1].main.temp;
      console.log("recipes ---->", weather)
     
      this.setState({data: weather})
@@ -31,7 +32,7 @@ const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=51
             <div>
                 <h1>Welcome to Santo Domingo</h1>
                 <ul>
-                  <li>{this.state.data} </li>
+                  {this.state.data} 
                 </ul>
             </div>
           </React.Fragment>
