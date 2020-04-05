@@ -1,5 +1,6 @@
 import {Route,Switch, Link , BrowserRouter as Router} from 'react-router-dom';
 import React from 'react'
+
 import './App.css';
 import Brooklyn from './Brooklyn'
 import SantoDomingo from './SantoDomingo'
