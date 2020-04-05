@@ -15,9 +15,10 @@ componentDidMount(){
 const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=3492908&appid=e9984ab7f3bed98ab978f1bfc5c63170")
    forecast.then(response => {
      let weather= response.data.list[1].main.temp;
-     console.log("recipes ---->", weather)
+     let b= response.data.cod;
+     console.log("temperature ---->", weather)
     
-     this.setState({data: weather})
+     this.setState({data: [weather,b]})
  
    })
    .catch(error => {
@@ -26,14 +27,19 @@ const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=34
  
  }
 
+//  function kelvinToF(){
+//    let a=8;
+//    this.setState(a)
+//  }
+
     render() {
         return (
           <React.Fragment >
             <div>
-                <h1>Welcome to Santo Domingo</h1>
-                <ul>
-                  {this.state.data} 
-                </ul>
+                <h1>Welcome to Santo Domingo
+                  the temperature is {this.state.data[0]}F 
+                </h1>
+                
             </div>
           </React.Fragment>
         )
