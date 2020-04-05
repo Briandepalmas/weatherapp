@@ -15,8 +15,8 @@ componentDidMount(){
     function kelvinToF(high,low){
       let a=(high-273.15) * (9/5) +32
       let b=(low-273.15) * (9/5) +32
-      let maxF= a.toFixed(2)
-      let minF= b.toFixed(2)
+      let maxF= a.toFixed(0)
+      let minF= b.toFixed(0)
       return[maxF,minF]
     }
 
