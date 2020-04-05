@@ -11,8 +11,9 @@ export class SantoDomingo extends Component {
   }
 componentDidMount(){
     //"id":3492908
+    let key=process.env.REACT_APP_WEATHER_API_KEY
    
-const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=3492908&appid=e9984ab7f3bed98ab978f1bfc5c63170")
+const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=3492908&appid="+key)
    forecast.then(response => {
      let high= response.data.list[1].main.temp_max;
      let low= response.data.list[1].main.temp_min;

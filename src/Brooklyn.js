@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+let key=process.env.REACT_APP_WEATHER_API_KEY
+
 
 export class Brooklyn extends Component {
   constructor(props) {
@@ -11,8 +13,8 @@ export class Brooklyn extends Component {
   }
 componentDidMount(){
     //"id":5110302
-   
-const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=5110302&appid=e9984ab7f3bed98ab978f1bfc5c63170")
+    let key=process.env.REACT_APP_WEATHER_API_KEY
+const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=5110302&appid="+key)
    forecast.then(response => {
     let high= response.data.list[1].main.temp_max;
     let low= response.data.list[1].main.temp_min;
