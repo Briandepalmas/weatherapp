@@ -1,7 +1,9 @@
 import {Route,Switch, Link , BrowserRouter as Router} from 'react-router-dom';
+import React from 'react'
 import './App.css';
 import Brooklyn from './Brooklyn'
 import SantoDomingo from './SantoDomingo'
+
 
  
 function App() {
@@ -11,10 +13,10 @@ function App() {
        <nav>
          <ul>
            <li>
-             <Link to="/brooklyn">Home</Link>
+             <Link to="/brooklyn">Brooklyn</Link>
            </li>
            <li>
-             <Link to="/santodomingo">Category</Link>
+             <Link to="/santodomingo">Santo Domingo</Link>
            </li>
          </ul>
        </nav>
