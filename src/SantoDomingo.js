@@ -10,17 +10,17 @@ export class SantoDomingo extends Component {
     }
   }
 componentDidMount(){
-    let fiveDays =  "http://anapioficeandfire.com/api/characters/583"
+    let fiveDays =  "api.openweathermap.org/data/2.5/forecast?id=524901&appid=e9984ab7f3bed98ab978f1bfc5c63170"
 const forecast=axios.get(fiveDays)
    forecast.then(res => {
-     const weather= res.data.culture;
+     const weather= res.data;
      console.log("recipes ---->", weather)
     
      this.setState({data: weather})
  
    })
    .catch(error => {
-     console.log('there is an eror', error)
+     console.log('there is an error', error)
    })
  
  }
@@ -28,6 +28,7 @@ const forecast=axios.get(fiveDays)
     render() {
         return (
             <div>
+              "id":3492908
                 <h1>Welcome to Santo Domingo</h1>
                 <ul>
                   <li>{this.state.data} </li>
