@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import {Route,Switch, Link , BrowserRouter as Router} from 'react-router-dom';
 import axios from'axios'
+import SantoDomingo from './SantoDomingo'
+import Brooklyn from './Brooklyn'
 
 export class Home extends Component {
     constructor(props) {
@@ -13,11 +16,15 @@ export class Home extends Component {
       }
     componentDidMount(){
         
-       let d=new Date()
-       this.setState({day:d})
-    const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=5110302&appid=e9984ab7f3bed98ab978f1bfc5c63170")
-       forecast.then(response => {
+        let key=process.env.REACT_APP_WEATHER_API_KEY
        
+    const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=5110302&appid="+key)
+       forecast.then(response => {
+        let high= response.data.list[1].main.temp_max;
+        let low= response.data.list[1].main.temp_min;
+         console.log("recipes ---->", low)
+        
+         this.setState({data: [high,low]})
         
         
          //this.setState({data: [high,low]})
@@ -38,7 +45,21 @@ export class Home extends Component {
                     <h1>Welcome to Brooklyn
                     {/* {this.state.day} */}
                     </h1>
-                    
+                    <nav>
+                        <Router>
+                            <div className="city">
+                                <Link id="hq" to="/Home">Sunday</Link>
+                                <Link id="bk"  to="/brooklyn">Monday</Link>
+                                <Link id="sdq" to="/santodomingo">Tuesday</Link>
+                            </div> 
+                        </Router>
+                      </nav>
+                      <Switch>
+         <Route exact path="/" component={Home} />
+         <Route exact path="/brooklyn" component={Brooklyn} />
+         <Route exact path="/santodomingo" component={SantoDomingo} />
+         
+       </Switch>
                 </div>
               </React.Fragment>
             )
