@@ -29,10 +29,9 @@ const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=34
  
  }
 
-//  function kelvinToF(){
-//    let a=8;
-//    this.setState(a)
-//  }
+ function kelvinToF(){
+
+ }
 
     render() {
         return (

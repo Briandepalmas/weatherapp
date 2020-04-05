@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import {Route,Switch, Link , BrowserRouter as Router} from 'react-router-dom';
+import { Link , BrowserRouter as Router} from 'react-router-dom';
 import axios from'axios'
-import SantoDomingo from './SantoDomingo'
-import Brooklyn from './Brooklyn'
+
 
 export class Home extends Component {
     constructor(props) {
@@ -15,7 +14,11 @@ export class Home extends Component {
         
       }
     componentDidMount(){
-        
+       
+      
+
+
+
         let key=process.env.REACT_APP_WEATHER_API_KEY
        
     const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=5110302&appid="+key)
@@ -27,7 +30,7 @@ export class Home extends Component {
          this.setState({data: [high,low]})
         
         
-         //this.setState({data: [high,low]})
+         
      
        })
        .catch(error => {
@@ -54,11 +57,7 @@ export class Home extends Component {
                             </div> 
                         </Router>
                       </nav>
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route exact path="/brooklyn" component={Brooklyn} />
-                        <Route exact path="/santodomingo" component={SantoDomingo} />
-                    </Switch>
+                  
                 </div>
               </React.Fragment>
             )
