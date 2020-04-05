@@ -12,17 +12,14 @@ function App() {
    <Router>
      <div className="App">
        <nav>
-         <ul>
-           <li>
-             <Link to="/brooklyn">Brooklyn</Link>
-           </li>
-           <li>
-             <Link to="/santodomingo">Santo Domingo</Link>
-           </li>
-         </ul>
-       </nav>
- 
+         <div className="city">
+           <Link id="bk"  to="/brooklyn">Brooklyn</Link>
+           <Link id="sdq" to="/santodomingo">Santo Domingo</Link>
+         </div>
+         </nav>
+       
        <Switch>
+         <Route exact path="/" component={Brooklyn} />
          <Route exact path="/brooklyn" component={Brooklyn} />
          <Route exact path="/santodomingo" component={SantoDomingo} />
          
