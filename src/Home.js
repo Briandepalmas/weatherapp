@@ -29,12 +29,19 @@ export class Home extends Component {
                     <nav>
                         <Router>
                             <div className="days">
-                                <Link id="sun" to="/sunday">Sunday</Link>
-                                <h1>hoy</h1>
-                                <Link id="mon"  to="/monday">Monday</Link>
-                                <h1>maniana</h1>
-                                <Link id="tue" to="/tuesday">Tuesday</Link>
-                                <h1>pasado</h1>
+                                <div>
+                                  <Link id="sun" to="/sunday">Sunday</Link>
+                                  <h1>hoy</h1>
+                                </div>
+                                <div>
+                                  <Link id="mon"  to="/monday">Monday</Link>
+                                  <h1>maniana</h1>
+                                </div>
+                                <div>
+                                  <Link id="tue" to="/tuesday">Tuesday</Link>
+                                  <h1>pasado</h1>
+                                </div>
+                                
                             </div> 
                         </Router>
                       </nav>
