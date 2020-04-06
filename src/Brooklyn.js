@@ -8,7 +8,9 @@ export class Brooklyn extends Component {
     super(props);
     
     this.state = {
-      data: []
+      data:[],
+      time:[],
+      temp:[]
     }
   }
 componentDidMount(){
@@ -48,6 +50,8 @@ const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=51
     console.log("temperature ---->", low)
    
     for (let i=0;i<8;i++){
+      this.setState({time: [response.data.list[i].dt_txt]})
+      this.setState({temp: [response.data.list[i].main.temp_max]})
       console.log("list="+response.data.list[i].main.temp_max)
       console.log("list="+response.data.list[i].dt_txt)
     //

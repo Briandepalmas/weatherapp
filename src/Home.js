@@ -8,8 +8,9 @@ export class Home extends Component {
         super(props);
         
         this.state = {
-            day: "d",
-          data: []
+            time: [],
+            data: [],
+            temp:[]
         }
         
       }
