@@ -11,41 +11,63 @@ export class Home extends Component {
         
         this.state = {
             
-            data: []
+            data: [],
+            day:[],
+            temp:[]
+          
             
         }
         
       }
     componentDidMount(){
+      
       function kelvinToF(high){
         let a=(high-273.15) * (9/5) +32
-        
         let maxF= a.toFixed(0)
-        
         return[maxF]
-      }let key=process.env.REACT_APP_WEATHER_API_KEY
+      }
+
+      // function calendar(){
+      //   let d=new Date()
+      //   let n= d.getDay()
+
+      //    <div></div>
+      //   console.log(n)
+      // }
+      // calendar()
+      
+      
+      let key=process.env.REACT_APP_WEATHER_API_KEY
    
-      const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=3492908&appid="+key)
+      const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=5110302&appid="+key)
          forecast.then(response => {
            
-           let day;
+           let day=[];
            let dailyMax;
-           let tempF;
+           let tempF=[];
 
            for (let i=0;i<5;i++){
             // 5 days displayed and added to day state
-           day= response.data.list[(i*8)+2].dt_txt;
-           this.setState({day:[day]})
+           day.push(response.data.list[(i*8)+2].dt_txt);
+           this.setState({day:day})
            console.log("abcd "+this.state.day)
            
            
            //display daily max temp in Farenheit
            dailyMax=response.data.list[(i*8)+2].main.temp_max
-           tempF=kelvinToF(dailyMax)
+           tempF.push(kelvinToF(dailyMax))
            this.setState({temp:tempF})
            console.log("xxxxx "+this.state.temp)
+          }
+
+
          
-         }
+
+
+
+          console.log("final------>"+this.state.temp)
+          console.log("final------>"+this.state.day)
+          console.log("final------>"+tempF)
         
         })
          .catch(error => {
@@ -54,6 +76,17 @@ export class Home extends Component {
     }
         
         render() {
+
+
+          function calendar(){
+            let d=new Date()
+            let n= d.getDay()
+    
+          let y= <div>{n}</div>
+            return y
+            //console.log(n)
+          }
+         
             return (
               <React.Fragment >
                 <div>
@@ -63,18 +96,32 @@ export class Home extends Component {
                     <nav>
                         <Router>
                             <div className="days">
-                                <div>
-                                  <Link id="sun" to="/sunday">Sunday</Link>
-                                  <h1>Max Temp: {this.state.data[0]}°F</h1>
-                                  <h1>Min Temp: {this.state.data[1]}°F</h1>
-                                </div>
+                                
                                 <div>
                                   <Link id="mon"  to="/monday">Monday</Link>
-                                  <h1>maniana</h1>
+                                  <h5>Date: {this.state.day[0]}</h5>
+                                  { calendar()}
+                                  <h1>Max Temp: {this.state.temp[0]}°F</h1>
                                 </div>
                                 <div>
                                   <Link id="tue" to="/tuesday">Tuesday</Link>
-                                  <h1>pasado</h1>
+                                  <h5>Date: {this.state.day[0]}</h5>
+                                  <h1>Max Temp: {this.state.temp[0]}°F</h1>
+                                </div>
+                                <div>
+                                  <Link id="tue" to="/tuesday">Wednesday</Link>
+                                  <h5>Date: {this.state.day[1]}</h5>
+                                  <h1>Max Temp: {this.state.temp[1]}°F</h1>
+                                </div>
+                                <div>
+                                  <Link id="tue" to="/tuesday">Thursday</Link>
+                                  <h5>Date: {this.state.day[2]}</h5>
+                                  <h1>Max Temp: {this.state.temp[2]}°F</h1>
+                                </div>
+                                <div>
+                                  <Link id="tue" to="/tuesday">Friday</Link>
+                                  <h5>Date: {this.state.day[3]}</h5>
+                                  <h1>Max Temp: {this.state.temp[3]}°F</h1>
                                 </div>
                                 
                             </div> 
