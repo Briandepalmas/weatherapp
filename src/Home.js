@@ -9,14 +9,11 @@ export class Home extends Component {
     constructor(props) {
         super(props);
         
-        this.state = {
-            
-            data: [],
-            day:[],
-            temp:[]
-          
-            
-        }
+        this.state = {      
+                 data:[],
+                 day:[],
+                 temp:[]           
+        }     
         
       }
     componentDidMount(){
@@ -26,15 +23,6 @@ export class Home extends Component {
         let maxF= a.toFixed(0)
         return[maxF]
       }
-
-      // function calendar(){
-      //   let d=new Date()
-      //   let n= d.getDay()
-
-      //    <div></div>
-      //   console.log(n)
-      // }
-      // calendar()
       
       
       let key=process.env.REACT_APP_WEATHER_API_KEY
@@ -45,7 +33,7 @@ export class Home extends Component {
            let day=[];
            let dailyMax;
            let tempF=[];
-
+           
            for (let i=0;i<5;i++){
             // 5 days displayed and added to day state
            day.push(response.data.list[(i*8)+2].dt_txt);
@@ -60,11 +48,6 @@ export class Home extends Component {
            console.log("xxxxx "+this.state.temp)
           }
 
-
-         
-
-
-
           console.log("final------>"+this.state.temp)
           console.log("final------>"+this.state.day)
           console.log("final------>"+tempF)
@@ -76,7 +59,7 @@ export class Home extends Component {
     }
         
         render() {
-
+          //let h=calendar()
 
           function calendar(x){
             let d=new Date()
@@ -84,34 +67,34 @@ export class Home extends Component {
             let n=r+x
             console.log("-----"+n)
             if(n===0){
-              let y= <div>{"Sunday"}</div>
+              let y= "Sunday"
               return y
             }
             else if(n===1){
-              let y= <div>{"Monday"}</div>
+              let y= "Monday"
               return y
             }
             else if(n===2){
-              let y= <div>{"Tuesday"}</div>
+              let y= "Tuesdddday"
               return y
             }
             else if(n===3){
-              let y= <div>{"Wednesday"}</div>
+              let y= "Wednesday"
               return y
             }
             else if(n===4){
-              let y= <div>{"Thursday"}</div>
+              let y= "Thursday"
               return y
             }
             else if(n===5){
-              let y= <div>{"Friday"}</div>
+              let y= "Friday"
               return y
             }
             else if(n===6){
-              let y= <div>{"Saturday"}</div>
+              let y= "Saturday"
               return y
             }
-        
+          
     console.log("-----"+n)
           
             
@@ -129,7 +112,7 @@ export class Home extends Component {
                             <div className="days">
                                 
                                 <div>
-                                  <Link id="mon"  to="/monday">{ calendar(0)}</Link>
+                                  <Link id="mon"  to="/">{ calendar(0)}</Link>
                                   <h5>Date: {this.state.day[0]}</h5>
                                   
                                   <h1>Max Temp: {this.state.temp[0]}°F</h1>
