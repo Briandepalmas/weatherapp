@@ -12,7 +12,8 @@ export class Home extends Component {
         this.state = {      
                  data:[],
                  day:[],
-                 temp:[]           
+                 temp:[], 
+                 weather:[]         
         }     
         
       }
@@ -33,6 +34,7 @@ export class Home extends Component {
            let day=[];
            let dailyMax;
            let tempF=[];
+           let cond=[];
            
            for (let i=0;i<5;i++){
             // 5 days displayed and added to day state
@@ -46,11 +48,19 @@ export class Home extends Component {
            tempF.push(kelvinToF(dailyMax))
            this.setState({temp:tempF})
            console.log("xxxxx "+this.state.temp)
+
+
+           cond.push(response.data.list[(i*8)+2].weather[0].main);
+           this.setState({weather:cond})
+           
+
+
           }
 
           console.log("final------>"+this.state.temp)
           console.log("final------>"+this.state.day)
           console.log("final------>"+tempF)
+          console.log("zzzzzzz"+this.state.weather)
         
         })
          .catch(error => {
@@ -66,7 +76,7 @@ export class Home extends Component {
             let d=new Date()
             let r= d.getDay()
             let n=r+x
-            console.log("-----"+n)
+            //console.log("-----"+n)
             if(n===0){
               let y= "Sunday"
               return y
@@ -76,7 +86,7 @@ export class Home extends Component {
               return y
             }
             else if(n===2){
-              let y= "Tuesdddday"
+              let y= "Tuesday"
               return y
             }
             else if(n===3){
@@ -95,9 +105,11 @@ export class Home extends Component {
               let y= "Saturday"
               return y
             }
-          //let h="/"+calendar(x)
-    console.log("-----"+n)
           
+   
+          // Rain
+          // Clouds 
+          // Clear
             
             
           }
@@ -136,6 +148,16 @@ export class Home extends Component {
                                   <Link id="tue" to={ calendar(4)}>{ calendar(4)}</Link>
                                   <h5>Date: {this.state.day[4]}</h5>
                                   <h1>Max Temp: {this.state.temp[4]}°F</h1>
+                                </div>
+                                <div>
+                                  <Link id="tue" to={ calendar(5)}>{ calendar(5)}</Link>
+                                  {/* <h5>Date: {this.state.day[0]}</h5>
+                                  <h1>Max Temp: {this.state.temp[0]}°F</h1> */}
+                                </div>
+                                <div>
+                                  <Link id="tue" to={ calendar(6)}>{ calendar(6)}</Link>
+                                  {/* <h5>Date: {this.state.day[1]}</h5>
+                                  <h1>Max Temp: {this.state.temp[1]}°F</h1> */}
                                 </div>
                                 
                             </div> 
