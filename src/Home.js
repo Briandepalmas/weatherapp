@@ -17,32 +17,41 @@ export class Home extends Component {
         
       }
     componentDidMount(){
-       
-      function kelvinToF(high,low){
+      function kelvinToF(high){
         let a=(high-273.15) * (9/5) +32
-        let b=(low-273.15) * (9/5) +32
+        
         let maxF= a.toFixed(0)
-        let minF= b.toFixed(0)
-        return[maxF,minF]
-      }
-        let key=process.env.REACT_APP_WEATHER_API_KEY
-        const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=5110302&appid="+key)
-           forecast.then(response => {
-             
-            
-            let high= response.data.list[1].main.temp_max;
-            let low= response.data.list[1].main.temp_min;
-            let tempF=kelvinToF(high,low)
+        
+        return[maxF]
+      }let key=process.env.REACT_APP_WEATHER_API_KEY
+   
+      const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=3492908&appid="+key)
+         forecast.then(response => {
+           
+           let day;
+           let dailyMax;
+           let tempF;
 
-            this.setState({data: [tempF[0],tempF[1]]})
-            console.log(this.state.data)
-         
-           })
-           .catch(error => {
-             console.log('there is an error', error.response)
-           })
+           for (let i=0;i<5;i++){
+            // 5 days displayed and added to day state
+           day= response.data.list[(i*8)+2].dt_txt;
+           this.setState({day:[day]})
+           console.log("abcd "+this.state.day)
+           
+           
+           //display daily max temp in Farenheit
+           dailyMax=response.data.list[(i*8)+2].main.temp_max
+           tempF=kelvinToF(dailyMax)
+           this.setState({temp:tempF})
+           console.log("xxxxx "+this.state.temp)
          
          }
+        
+        })
+         .catch(error => {
+           console.log('there is an error', error.response)
+         })
+    }
         
         render() {
             return (
