@@ -135,24 +135,24 @@ export class Home extends Component {
                                   <h1>Max Temp: {this.state.temp[0]}°F</h1>
                                 </div>
                                 <div>
-                                  <Link id="tue" to="/tuesday">Tuesday</Link>
-                                  <h5>Date: {this.state.day[0]}</h5>
-                                  <h1>Max Temp: {this.state.temp[0]}°F</h1>
-                                </div>
-                                <div>
-                                  <Link id="tue" to="/tuesday">Wednesday</Link>
+                                  <Link id="tue" to="/tuesday">{ calendar(1)}</Link>
                                   <h5>Date: {this.state.day[1]}</h5>
                                   <h1>Max Temp: {this.state.temp[1]}°F</h1>
                                 </div>
                                 <div>
-                                  <Link id="tue" to="/tuesday">Thursday</Link>
+                                  <Link id="tue" to="/tuesday">{ calendar(2)}</Link>
                                   <h5>Date: {this.state.day[2]}</h5>
                                   <h1>Max Temp: {this.state.temp[2]}°F</h1>
                                 </div>
                                 <div>
-                                  <Link id="tue" to="/tuesday">Friday</Link>
+                                  <Link id="tue" to="/tuesday">{ calendar(3)}</Link>
                                   <h5>Date: {this.state.day[3]}</h5>
                                   <h1>Max Temp: {this.state.temp[3]}°F</h1>
+                                </div>
+                                <div>
+                                  <Link id="tue" to="/tuesday">{ calendar(4)}</Link>
+                                  <h5>Date: {this.state.day[4]}</h5>
+                                  <h1>Max Temp: {this.state.temp[4]}°F</h1>
                                 </div>
                                 
                             </div> 
