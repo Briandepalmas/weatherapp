@@ -59,8 +59,9 @@ export class Home extends Component {
     }
         
         render() {
-          //let h=calendar()
-
+          
+          
+           
           function calendar(x){
             let d=new Date()
             let r= d.getDay()
@@ -94,7 +95,7 @@ export class Home extends Component {
               let y= "Saturday"
               return y
             }
-          
+          //let h="/"+calendar(x)
     console.log("-----"+n)
           
             
@@ -112,28 +113,27 @@ export class Home extends Component {
                             <div className="days">
                                 
                                 <div>
-                                  <Link id="mon"  to="/">{ calendar(0)}</Link>
+                                  <Link id="mon"  to={ calendar(0)}>{ calendar(0)}</Link>
                                   <h5>Date: {this.state.day[0]}</h5>
-                                  
                                   <h1>Max Temp: {this.state.temp[0]}°F</h1>
                                 </div>
                                 <div>
-                                  <Link id="tue" to="/tuesday">{ calendar(1)}</Link>
+                                  <Link id="tue" to={ calendar(1)}>{ calendar(1)}</Link>
                                   <h5>Date: {this.state.day[1]}</h5>
                                   <h1>Max Temp: {this.state.temp[1]}°F</h1>
                                 </div>
                                 <div>
-                                  <Link id="tue" to="/tuesday">{ calendar(2)}</Link>
+                                  <Link id="tue" to={ calendar(2)}>{ calendar(2)}</Link>
                                   <h5>Date: {this.state.day[2]}</h5>
                                   <h1>Max Temp: {this.state.temp[2]}°F</h1>
                                 </div>
                                 <div>
-                                  <Link id="tue" to="/tuesday">{ calendar(3)}</Link>
+                                  <Link id="tue" to={ calendar(3)}>{ calendar(3)}</Link>
                                   <h5>Date: {this.state.day[3]}</h5>
                                   <h1>Max Temp: {this.state.temp[3]}°F</h1>
                                 </div>
                                 <div>
-                                  <Link id="tue" to="/tuesday">{ calendar(4)}</Link>
+                                  <Link id="tue" to={ calendar(4)}>{ calendar(4)}</Link>
                                   <h5>Date: {this.state.day[4]}</h5>
                                   <h1>Max Temp: {this.state.temp[4]}°F</h1>
                                 </div>
