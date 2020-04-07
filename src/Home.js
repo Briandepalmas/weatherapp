@@ -78,13 +78,44 @@ export class Home extends Component {
         render() {
 
 
-          function calendar(){
+          function calendar(x){
             let d=new Date()
-            let n= d.getDay()
-    
-          let y= <div>{n}</div>
-            return y
-            //console.log(n)
+            let r= d.getDay()
+            let n=r+x
+            console.log("-----"+n)
+            if(n===0){
+              let y= <div>{"Sunday"}</div>
+              return y
+            }
+            else if(n===1){
+              let y= <div>{"Monday"}</div>
+              return y
+            }
+            else if(n===2){
+              let y= <div>{"Tuesday"}</div>
+              return y
+            }
+            else if(n===3){
+              let y= <div>{"Wednesday"}</div>
+              return y
+            }
+            else if(n===4){
+              let y= <div>{"Thursday"}</div>
+              return y
+            }
+            else if(n===5){
+              let y= <div>{"Friday"}</div>
+              return y
+            }
+            else if(n===6){
+              let y= <div>{"Saturday"}</div>
+              return y
+            }
+        
+    console.log("-----"+n)
+          
+            
+            
           }
          
             return (
@@ -98,9 +129,9 @@ export class Home extends Component {
                             <div className="days">
                                 
                                 <div>
-                                  <Link id="mon"  to="/monday">Monday</Link>
+                                  <Link id="mon"  to="/monday">{ calendar(0)}</Link>
                                   <h5>Date: {this.state.day[0]}</h5>
-                                  { calendar()}
+                                  
                                   <h1>Max Temp: {this.state.temp[0]}°F</h1>
                                 </div>
                                 <div>
