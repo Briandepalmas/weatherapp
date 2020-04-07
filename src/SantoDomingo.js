@@ -6,7 +6,8 @@ export class SantoDomingo extends Component {
     super(props);
     
     this.state = {
-      data: []
+      data: [],
+      temp:[]
     }
   }
 componentDidMount(){
@@ -23,11 +24,22 @@ componentDidMount(){
 
     let key=process.env.REACT_APP_WEATHER_API_KEY
    
-const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=3492908&appid="+key)
+const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=5110302&appid="+key)
    forecast.then(response => {
      let high= response.data.list[0].main.temp_max;
      let low= response.data.list[0].main.temp_min;
-     let day= response.data.list[0].dt_txt;
+     let day= response.data.list.dt_txt;
+     let dailyMax;
+     let dailyMin;
+     for (let i=0;i<6;i++){
+       day= response.data.list[(i*8)+2];
+        dailyMax=day.main.temp_max
+        dailyMin=day.main.temp_min
+       console.log(day)
+       console.log(dailyMax)
+       console.log(dailyMin)
+     }
+     
      
      let tempF=kelvinToF(high,low)
      console.log("temperature ---->", day)

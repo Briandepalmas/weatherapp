@@ -30,32 +30,20 @@ componentDidMount(){
 const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=5110302&appid="+key)
    forecast.then(response => {
      
-    // for (let i=0;i<8;i++){
-    //     console.log("list="+response.data.list[high].dt_txt)
-    //   //
-      
-      
-    //   }
-    
-    
-      //let day= response.data.list[0].dt_txt;
-    
-    
-    
-    
     
       let high= response.data.list[1].main.temp_max;
     let low= response.data.list[1].main.temp_min;
     let tempF=kelvinToF(high,low)
-    console.log("temperature ---->", low)
+    // let tempF;
    
-    for (let i=0;i<8;i++){
-      this.setState({time: [response.data.list[i].dt_txt]})
-      this.setState({temp: [response.data.list[i].main.temp_max]})
-      console.log("list="+response.data.list[i].main.temp_max)
-      console.log("list="+response.data.list[i].dt_txt)
-    //
-    }
+    // for (let i=0;i<8;i++){
+    //    tempF=kelvinToF(high,low)
+    //   this.setState({time: [response.data.list[i].dt_txt]})
+    //   this.setState({temp: [response.data.list[i].tempF[0]]})
+    //   console.log("list="+this.state.time)
+    //   console.log("list="+this.state.temp)
+    // //
+    // }
 
 
     this.setState({data: [tempF[0],tempF[1]]})
@@ -76,7 +64,14 @@ const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=51
                 <h1>Welcome to Brooklyn
                 Highest temperature is {this.state.data[0]}°F
                   Lowest temperature is {this.state.data[1]}°F 
-                </h1>
+                  </h1>
+                  <div>
+                      <h1> Time and weather </h1>
+                        <ul>
+        {this.state.time.map((recipe, id) => <li key={id}> {this.state.temp}</li>)}
+                         </ul>
+                 </div>
+                
                 
             </div>
           </React.Fragment>

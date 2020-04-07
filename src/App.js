@@ -4,6 +4,7 @@ import './App.css';
 import Brooklyn from './Brooklyn'
 import SantoDomingo from './SantoDomingo'
 import Home from './Home'
+import Monday from './components/Monday'
 
 
 
@@ -22,6 +23,7 @@ function App() {
        
        <Switch>
          <Route exact path="/" component={Home} />
+         <Route exact path="/monday" component={Monday} />
          <Route exact path="/brooklyn" component={Brooklyn} />
          <Route exact path="/santodomingo" component={SantoDomingo} />
          
