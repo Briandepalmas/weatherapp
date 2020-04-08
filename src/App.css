@@ -1,12 +1,19 @@
+body{
+    background-color: rgb(179, 204, 250);
+}
 .city{
     display:flex;
 font-size: 30px;
 text-align: center;
 justify-content: space-around;
+background-color: rgb(127, 185, 255);
 }
 h1{
     text-align: center;
+    color: darkblue;
+    font-weight: 200;
     font-size:45px;
+    background-color: rgb(91, 139, 244);
 }
 .days{
     display:flex;
