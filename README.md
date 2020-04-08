@@ -1,4 +1,4 @@
-![wireframe]('./src/images/weatherwireframe.png?raw=true')
+![wireframe]('./src/images/weatherwireframe.png')
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
