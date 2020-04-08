@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Link , BrowserRouter as Router} from 'react-router-dom';
+import { Route,Link , BrowserRouter as Router} from 'react-router-dom';
 import axios from 'axios'
-//import Brooklyn from './Brooklyn'
+import Monday from './components/Monday'
+
 
 
 
@@ -38,22 +39,20 @@ export class Home extends Component {
            
            for (let i=0;i<5;i++){
             // 5 days displayed and added to day state
-           day.push(response.data.list[(i*8)+2].dt_txt);
+           day.push(response.data.list[(i*8)].dt_txt);
            this.setState({day:day})
            console.log("abcd "+this.state.day)
            
            
            //display daily max temp in Farenheit
-           dailyMax=response.data.list[(i*8)+2].main.temp_max
+           dailyMax=response.data.list[(i*8)].main.temp_max
            tempF.push(kelvinToF(dailyMax))
            this.setState({temp:tempF})
            console.log("xxxxx "+this.state.temp)
 
 
-           cond.push(response.data.list[(i*8)+2].weather[0].main);
+           cond.push(response.data.list[(i*8)].weather[0].main);
            this.setState({weather:cond})
-           
-
 
           }
 
@@ -106,7 +105,10 @@ export class Home extends Component {
               return y
             }
           
-   
+          // function conditions(){
+
+
+          // }
           // Rain
           // Clouds 
           // Clear
@@ -115,57 +117,73 @@ export class Home extends Component {
           }
          
             return (
-              <React.Fragment >
+              <Router>
+                
                 <div>
-                    <h1>Welcome to Home Page
-                    
-                    </h1>
+                    <h1>Welcome to Home Page</h1>  
                     <nav>
-                        <Router>
-                            <div className="days">
+                        
+                    <div className="days">
                                 
                                 <div>
-                                  <Link id="mon"  to={ calendar(0)}>{ calendar(0)}</Link>
+                                  
+                                  <Link id="sun"  to={ calendar(0)}>{ calendar(0)}</Link>
+                                  
+                                  {/* <Monday message={this.state.weather[0]}/> */}
                                   <h5>Date: {this.state.day[0]}</h5>
                                   <h1>Max Temp: {this.state.temp[0]}°F</h1>
                                 </div>
+                               
                                 <div>
-                                  <Link id="tue" to={ calendar(1)}>{ calendar(1)}</Link>
+                                  <Link id="mon" to={ calendar(1)}>{ calendar(1)}</Link>
+                                  {/* <Monday message={this.state.weather[1]}/> */}
                                   <h5>Date: {this.state.day[1]}</h5>
                                   <h1>Max Temp: {this.state.temp[1]}°F</h1>
                                 </div>
+                               
                                 <div>
                                   <Link id="tue" to={ calendar(2)}>{ calendar(2)}</Link>
+                                  {/* <Monday message={this.state.weather[2]}/> */}
                                   <h5>Date: {this.state.day[2]}</h5>
                                   <h1>Max Temp: {this.state.temp[2]}°F</h1>
                                 </div>
+                              
                                 <div>
-                                  <Link id="tue" to={ calendar(3)}>{ calendar(3)}</Link>
+                                  <Link id="wed" to={ calendar(3)}>{ calendar(3)}</Link>
+                                  {/* <Monday message={this.state.weather[3]}/> */}
                                   <h5>Date: {this.state.day[3]}</h5>
                                   <h1>Max Temp: {this.state.temp[3]}°F</h1>
                                 </div>
+                                
                                 <div>
-                                  <Link id="tue" to={ calendar(4)}>{ calendar(4)}</Link>
+                                  <Link id="thu" to={ calendar(4)}>{ calendar(4)}</Link>
+                                  {/* <Monday message={this.state.weather[4]}/> */}
                                   <h5>Date: {this.state.day[4]}</h5>
                                   <h1>Max Temp: {this.state.temp[4]}°F</h1>
                                 </div>
+                                
                                 <div>
-                                  <Link id="tue" to={ calendar(5)}>{ calendar(5)}</Link>
+                                  <Link id="fri" to={ calendar(5)}>{ calendar(5)}</Link>
+                                  {/* <Monday message={this.state.weather[0]}/> */}
                                   {/* <h5>Date: {this.state.day[0]}</h5>
                                   <h1>Max Temp: {this.state.temp[0]}°F</h1> */}
                                 </div>
+                                
                                 <div>
-                                  <Link id="tue" to={ calendar(6)}>{ calendar(6)}</Link>
+                                  <Link id="sat" to={ calendar(6)}>{ calendar(6)}</Link>
+                                  {/* <Monday message={this.state.weather[1]}/> */}
                                   {/* <h5>Date: {this.state.day[1]}</h5>
                                   <h1>Max Temp: {this.state.temp[1]}°F</h1> */}
                                 </div>
                                 
                             </div> 
-                        </Router>
+                       
                       </nav>
-                  
+                      <Route exact path="/monday" component={Monday} /> 
+                     
                 </div>
-              </React.Fragment>
+                
+              </Router>
             )
         }
     }

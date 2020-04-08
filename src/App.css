@@ -1,1 +1,15 @@
-
+.city{
+    display:flex;
+font-size: 30px;
+text-align: center;
+justify-content: space-around;
+}
+h1{
+    text-align: center;
+}
+.days{
+    display:flex;
+font-size: 30px;
+text-align: center;
+justify-content: space-around;
+}

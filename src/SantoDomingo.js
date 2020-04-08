@@ -38,38 +38,14 @@ const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=34
       this.setState({day:[day]})
       console.log("abcd "+this.state.day)
       
-
-
-      //display daily max temp
+      
+      //display daily max temp in Farenheit
       dailyMax=response.data.list[(i*8)+2].main.temp_max
-      //tempF
-      console.log("xxxxx "+dailyMax)
-      //this.setState({temp:[dailyMax]})
+      tempF=kelvinToF(dailyMax)
+      this.setState({temp:tempF})
+      console.log("xxxxx "+this.state.temp)
     
     }
-    //  let high;= response.data.list[1].main.temp_max;
-    //  let low;= response.data.list[1].main.temp_min;
-    //  let day= response.data.list[1].dt_txt;
-    //  let dailyMax;
-    //  let dailyMin;
-    //  let tempF;
-    //  for (let i=0;i<6;i++){
-    //    day= response.data.list[(i*8)+2];
-        
-    //     dailyMax=day.main.temp_max
-    //     dailyMin=day.main.temp_min
-    //    tempF= kelvinToF(dailyMax,dailyMin)
-    //    this.setState({temp:[tempF[0],tempF[1]]})
-    //    console.log(day)
-    //    console.log(dailyMax)
-    //    console.log(dailyMin)
-    //  }
-     
-     
-     
-    //  console.log("temperature ---->", day)
-    
-    //  this.setState({temp: [tempF[0],tempF[1]]})
  
    })
    .catch(error => {
