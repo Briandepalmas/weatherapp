@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Route,Link , BrowserRouter as Router} from 'react-router-dom';
+import rain from './images/rain.png'
+import cloudy from './images/cloudy.png'
+import sunny from './images/sunny.png'
 import axios from 'axios'
 import Monday from './components/Monday'
 
@@ -69,6 +72,7 @@ export class Home extends Component {
         
         render() {
           
+          let clo=cloudy
           
            
           function calendar(x){
@@ -118,72 +122,56 @@ export class Home extends Component {
          
             return (
               <Router>
-                
-                <div>
+                 <div>
                     <h1>Welcome to Home Page</h1>  
-                    <nav>
-                        
+                  <nav>
                     <div className="days">
-                                
-                                <div>
-                                  
-                                  <Link id="sun"  to={ calendar(0)}>{ calendar(0)}</Link>
-                                  
-                                  {/* <Monday message={this.state.weather[0]}/> */}
-                                  <h5>Date: {this.state.day[0]}</h5>
-                                  <h1>Max Temp: {this.state.temp[0]}°F</h1>
-                                </div>
-                               
-                                <div>
-                                  <Link id="mon" to={ calendar(1)}>{ calendar(1)}</Link>
-                                  {/* <Monday message={this.state.weather[1]}/> */}
-                                  <h5>Date: {this.state.day[1]}</h5>
-                                  <h1>Max Temp: {this.state.temp[1]}°F</h1>
-                                </div>
-                               
-                                <div>
-                                  <Link id="tue" to={ calendar(2)}>{ calendar(2)}</Link>
-                                  {/* <Monday message={this.state.weather[2]}/> */}
-                                  <h5>Date: {this.state.day[2]}</h5>
-                                  <h1>Max Temp: {this.state.temp[2]}°F</h1>
-                                </div>
-                              
-                                <div>
-                                  <Link id="wed" to={ calendar(3)}>{ calendar(3)}</Link>
-                                  {/* <Monday message={this.state.weather[3]}/> */}
-                                  <h5>Date: {this.state.day[3]}</h5>
-                                  <h1>Max Temp: {this.state.temp[3]}°F</h1>
-                                </div>
-                                
-                                <div>
-                                  <Link id="thu" to={ calendar(4)}>{ calendar(4)}</Link>
-                                  {/* <Monday message={this.state.weather[4]}/> */}
-                                  <h5>Date: {this.state.day[4]}</h5>
-                                  <h1>Max Temp: {this.state.temp[4]}°F</h1>
-                                </div>
-                                
-                                <div>
-                                  <Link id="fri" to={ calendar(5)}>{ calendar(5)}</Link>
-                                  {/* <Monday message={this.state.weather[0]}/> */}
-                                  {/* <h5>Date: {this.state.day[0]}</h5>
-                                  <h1>Max Temp: {this.state.temp[0]}°F</h1> */}
-                                </div>
-                                
-                                <div>
-                                  <Link id="sat" to={ calendar(6)}>{ calendar(6)}</Link>
-                                  {/* <Monday message={this.state.weather[1]}/> */}
-                                  {/* <h5>Date: {this.state.day[1]}</h5>
-                                  <h1>Max Temp: {this.state.temp[1]}°F</h1> */}
-                                </div>
-                                
-                            </div> 
-                       
-                      </nav>
+                      <div>
+                        <Link id="sun"  to={ calendar(0)}>{ calendar(0)}</Link>
+                        <h5>Date: {this.state.day[0]}</h5>
+                        <h1>Max Temp: {this.state.temp[0]}°F</h1>
+                        <img id="images"src={clo}alt="condition"/>
+                      </div>
+                      <div>
+                        <Link id="mon" to={ calendar(1)}>{ calendar(1)}</Link>
+                        <h5>Date: {this.state.day[1]}</h5>
+                        <h1>Max Temp: {this.state.temp[1]}°F</h1>
+                        <img id="images"src={clo}alt="condition"/>
+                      </div>
+                      <div>
+                         <Link id="tue" to={ calendar(2)}>{ calendar(2)}</Link>
+                         <h5>Date: {this.state.day[2]}</h5>
+                         <h1>Max Temp: {this.state.temp[2]}°F</h1>
+                         <img id="images"src={clo}alt="condition"/>
+                      </div>
+                      <div>
+                         <Link id="wed" to={ calendar(3)}>{ calendar(3)}</Link>
+                         <h5>Date: {this.state.day[3]}</h5>
+                         <h1>Max Temp: {this.state.temp[3]}°F</h1>
+                         <img id="images"src={clo}alt="condition"/>
+                      </div>
+                      <div>
+                         <Link id="thu" to={ calendar(4)}>{ calendar(4)}</Link>
+                         <h5>Date: {this.state.day[4]}</h5>
+                         <h1>Max Temp: {this.state.temp[4]}°F</h1> 
+                         <img id="images"src={clo}alt="condition"/> 
+                      </div>          
+                      <div>          
+                         <Link id="fri" to={ calendar(5)}>{ calendar(5)}</Link>  
+                         {/* <h5>Date: {this.state.day[0]}</h5>
+                         <h1>Max Temp: {this.state.temp[0]}°F</h1> */}
+                      </div>
+                      <div>          
+                          <Link id="sat" to={ calendar(6)}>{ calendar(6)}</Link>       
+                          {/* <h5>Date: {this.state.day[1]}</h5>       
+                           <h1>Max Temp: {this.state.temp[1]}°F</h1> */}       
+                       </div>            
+                    </div>           
+                  </nav>
                       <Route exact path="/monday" component={Monday} /> 
                      
                 </div>
-                
-              </Router>
+            </Router>
             )
         }
     }
