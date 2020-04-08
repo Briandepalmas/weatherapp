@@ -62,7 +62,6 @@ const forecast=axios.get("https://api.openweathermap.org/data/2.5/forecast?id=34
             <div>
                 <h1>Welcome to Santo Domingo
                   Highest temperature is {this.state.temp[0]}°F
-                  Lowest temperature is {this.state.temp[1]}°F
                 </h1>
                 
             </div>

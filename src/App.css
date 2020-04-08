@@ -6,10 +6,15 @@ justify-content: space-around;
 }
 h1{
     text-align: center;
+    font-size:45px;
 }
 .days{
     display:flex;
 font-size: 30px;
 text-align: center;
 justify-content: space-around;
+}
+#images{
+    height:100px;
+    width: 100px;
 }
